@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'android-helpers'   // Has to be same as your library module name
+
+    publishedGroupId = 'com.viztushar.android.helpers'
+    libraryName = 'android-helpers'
+    artifact = 'android-helpers'     // Has to be same as your library module name
+
+    libraryDescription = 'Android Library to make any text into Toast with Awesome prepended to the text'
+
+    // Your github repo link
+    siteUrl = 'https://github.com/viztushar/android-helpers'
+    gitUrl = 'https://github.com/viztushar/android-helpers.git'
+    githubRepository= 'viztushar/android-helpers'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 'viztushar'
+    developerName = 'Tushar Parmar'
+    developerEmail = 'viztushar@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "0.1"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:26.0.0'
+}
+
+apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/bintrayv1.gradle'
